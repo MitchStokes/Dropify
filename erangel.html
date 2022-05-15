@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>DROPIFY</title>
+    <link rel="stylesheet" href="css/root.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Raleway&display=swap" rel="stylesheet">
+
+    <!-- Import util scripts -->
+    <script type="text/javascript" src="../script/loadMap.js"></script>
+    <script type="text/javascript" src="../script/drawDrops.js"></script>
+    <script type="text/javascript" src="../script/buildMode.js"></script>
+
+    <!-- Import drop data files -->
+    <script type="text/javascript" src="../res/drops/testDrop.js"></script>
+    <script type="text/javascript" src="../res/drops/testSchoolAps.js"></script>
+    <script type="text/javascript" src="../res/drops/erangelData.js"></script>
+
+  </head>
+
+
+
+
+  <body>
+
+    <canvas id="canvas" width="900" height="900"></canvas>
+
+    <button id="test">Test</button>
+
+    <script>
+      const COLOR_MAIN = [ 255,0,0,0.3 ];
+      const COLOR_ALT = [ 0,0,255,0.3 ];
+      const COLOR_MIX = [ 255,255,0,0.3 ];
+
+      loadMap( true ); // Draws map with isErangel set to true (async)
+      enableBuildMode(); // Enables console output to make building new drops easier
+
+      document.getElementById("test").onclick = () => {
+        erangelData.forEach( ( drop ) => {
+          drawDrop( drop, COLOR_MAIN, "STK" );
+        } );
+      }
+    </script>
+
+  </body>
+
+  
+
+
+</html>

@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: auto;
+  width: auto;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid var(--accent);
+
+  background-color: var(--main);
+}
+
+.maps-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.map-button {
+  height: 400px;
+  width: 400px;
+  margin: 0 10px 0 10px;
+
+  border: 1px solid rgba(0,0,0,0);
+  background-size: 400px;
+  text-align: center;
+  line-height: 400px;
+  color: white;
+  font-family: "Oswald", sans-serif;
+  font-style: italic;
+  font-size: 48px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.map-button:hover {
+  font-size: 54px;
+  border: 1px solid var(--accent);
+}
+
+.erangel-bg {
+  background-image: url("../res/Erangel_PNG.png");
+}
+
+.miramar-bg {
+  background-image: url("../res/Miramar_PNG.png");
+}
