@@ -2,7 +2,7 @@ const COLOR_MAIN = [ 255,0,0,0.3 ];
 const COLOR_ALT = [ 0,0,255,0.3 ];
 const COLOR_MIX = [ 255,255,0,0.3 ];
 
-const setupAddDrop = () => {
+const setupAddDrop = ( isErangel ) => {
   document.getElementById( "add-drop" ).onclick = () => {
     // Get the team tag from the relevant input
     const teamTag = document.getElementById( "team-tag" ).value;
@@ -20,11 +20,19 @@ const setupAddDrop = () => {
     // If we have everything, add the drop to the map
     if ( teamTag && color && selectedDropType ) {
       let drop = null;
-      erangelData.forEach( item => { // Need to iterate to find the drop data object by name
-        if ( item.name === selectedDrop ) {
-          drop = item;
-        }
-      } );
+      if ( isErangel ) {
+        erangelData.forEach( item => { // Need to iterate to find the drop data object by name
+          if ( item.name === selectedDrop ) {
+            drop = item;
+          }
+        } );
+      } else {
+        miramarData.forEach( item => { // Need to iterate to find the drop data object by name
+          if ( item.name === selectedDrop ) {
+            drop = item;
+          }
+        } );
+      }
       drawDrop( drop, color, teamTag );
 
       // Reset team tag input

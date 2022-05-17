@@ -26,8 +26,6 @@
     <script type="text/javascript" src="../script/downloadMap.js"></script>
 
     <!-- Import drop data files -->
-    <script type="text/javascript" src="../res/drops/testDrop.js"></script>
-    <script type="text/javascript" src="../res/drops/testSchoolAps.js"></script>
     <script type="text/javascript" src="../res/drops/erangelData.js"></script>
 
   </head>
@@ -70,7 +68,7 @@
       enableBuildMode(); // Enables console output to make building new drops easier
       populateDrops( erangelData ); // Populate the drops list from Erangel data
       setupSelectDropType(); // Setup drop type selection
-      setupAddDrop(); // Setup the logic to actually add a drop to the map
+      setupAddDrop( true ); // Setup the logic to actually add a drop to the map with isErangel set to true
 
       document.getElementById( "download-btn" ).onclick = () => {
         downloadMap();
