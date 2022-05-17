@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <title>DROPIFY</title>
     <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/maps.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +20,10 @@
     <script type="text/javascript" src="../script/loadMap.js"></script>
     <script type="text/javascript" src="../script/drawDrops.js"></script>
     <script type="text/javascript" src="../script/buildMode.js"></script>
+    <script type="text/javascript" src="../script/populateDrops.js"></script>
+    <script type="text/javascript" src="../script/selectDropType.js"></script>
+    <script type="text/javascript" src="../script/addDrop.js"></script>
+    <script type="text/javascript" src="../script/downloadMap.js"></script>
 
     <!-- Import drop data files -->
     <script type="text/javascript" src="../res/drops/testDrop.js"></script>
@@ -32,23 +37,45 @@
 
   <body>
 
-    <canvas id="canvas" width="900" height="900"></canvas>
+    <div class="row-container">
+      <canvas id="canvas" width="900" height="900"></canvas>
 
-    <button id="test">Test</button>
+      <div class="card">
+        <p class="form-label">Enter team tag:</p>
+        <input class="form-input" type="text" id="team-tag" placeholder="e.g. STK" />
+
+        <p class="form-label">Choose drop location:</p>
+        <div class="list-container" id="drops-list"></div>
+
+        <p class="form-label">Choose drop type:</p>
+        <div class="list-container" id="drop-types-list">
+          <p class="list-item">Main</p>
+          <p class="list-item">Alt</p>
+          <p class="list-item">Mixed</p>
+        </div>
+
+        <button id="add-drop" class="bottom-btn">Add Drop</button>
+
+        <button id="download-btn" class="bottom-btn">Download Map</button>
+      </div>
+
+    </div>
+
+    <!-- <button id="test">Test</button> -->
 
     <script>
-      const COLOR_MAIN = [ 255,0,0,0.3 ];
-      const COLOR_ALT = [ 0,0,255,0.3 ];
-      const COLOR_MIX = [ 255,255,0,0.3 ];
+      
 
       loadMap( true ); // Draws map with isErangel set to true (async)
       enableBuildMode(); // Enables console output to make building new drops easier
+      populateDrops( erangelData ); // Populate the drops list from Erangel data
+      setupSelectDropType(); // Setup drop type selection
+      setupAddDrop(); // Setup the logic to actually add a drop to the map
 
-      document.getElementById("test").onclick = () => {
-        erangelData.forEach( ( drop ) => {
-          drawDrop( drop, COLOR_MAIN, "STK" );
-        } );
+      document.getElementById( "download-btn" ).onclick = () => {
+        downloadMap();
       }
+      
     </script>
 
   </body>

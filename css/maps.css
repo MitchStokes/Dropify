@@ -1,0 +1,91 @@
+.row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: auto;
+  width: auto;
+  padding: 50px;
+  border-radius: 5px;
+  border: 1px solid var(--accent);
+
+  background-color: var(--main);
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: auto;
+  max-height: 200px;
+  width: auto;
+  overflow-y: scroll;
+  padding: 0px 60px 0px 60px;
+  border-radius: 5px;
+  border: 1px solid var(--accent);
+
+  background-color: var(--main);
+  margin-bottom: 20px;
+}
+
+#canvas {
+  margin-right: 100px;
+}
+
+.form-label {
+  color: white;
+  font-family: "Oswald", sans-serif;
+}
+
+.form-input {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.list-item {
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  margin: 5px;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+}
+
+.list-item-highlight {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+
+.bottom-btn {
+  font-family: "Oswald", sans-serif;
+  background-color: var(--main);
+  border: 1px solid var(--accent);
+  color: white;
+  font-size: 36px;
+  padding: 10px 60px 10px 60px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.bottom-btn:hover {
+  box-shadow: 5px 5px 5px black;
+}
